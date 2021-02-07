@@ -15,6 +15,16 @@ module.exports = {
         library: 'Client',
     },
     devtool: 'source-map',
+    devServer: {
+        proxy: {
+            '/key': {
+                target: 'http://localhost:3000',
+                secure: false,
+                changeOrigin: true,
+            },
+        },
+    },
+
     stats: 'verbose',
     module: {
         rules: [{
