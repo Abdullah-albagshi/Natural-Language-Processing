@@ -1,5 +1,4 @@
 function validURL(url) {
-    console.log();
     var pattern = new RegExp(
         '^((ft|htt)ps?:\\/\\/)?' + // protocol
         '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name and extension
@@ -10,7 +9,7 @@ function validURL(url) {
         '(\\#[-a-z\\d_]*)?$',
         'i'
     ); // fragment locator
-    return pattern.test(url);
+    return !!pattern.test(url);
 }
 
 export { validURL };
