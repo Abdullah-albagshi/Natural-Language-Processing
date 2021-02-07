@@ -3,6 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const apiKey = process.env.API_KEY;
+
 // Start up an instance of app
 const app = express();
 
@@ -14,6 +19,10 @@ app.use(express.static('dist'));
 
 app.get('/', function(req, res) {
     res.sendFile('dist/index.html');
+});
+
+app.get('/key', (req, res) => {
+    res.send({ key: apiKey });
 });
 
 // set port to be 3000 or a given port in .env config
